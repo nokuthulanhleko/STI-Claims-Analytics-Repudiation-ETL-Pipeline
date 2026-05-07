@@ -2,9 +2,7 @@
 
 🚧 **Status: In Progress**
 
-# 🛡️ STI Claims Analytics & Repudiation ETL Pipeline
 
-🚧 **Status: In Progress**
 
 ---
 
