@@ -29,19 +29,15 @@ This project aims to solve that by building a scalable pipeline that enables:
 
 ## Planned Architecture
 
-```text
 CSV Dataset → Staging → ETL Stored Procedures → Data Warehouse → Power BI
-```
-
----
 
 ##  Work Completed So Far
 
-* ✅ Staging table created and data loaded
-* ✅ Warehouse schemas (dim, fact, etl) created
-* ✅ Dimension tables designed
-* ✅ Fact table designed
-* ✅ Stored procedures development in progress
+* Staging table created and data loaded
+* Warehouse schemas (dim, fact, etl) created
+* Dimension tables designed
+* Fact table designed
+* Stored procedures development in progress
 
 ---
 
@@ -71,7 +67,7 @@ CSV Dataset → Staging → ETL Stored Procedures → Data Warehouse → Power B
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 * Complete ETL stored procedures
 * Load fact table
@@ -81,7 +77,7 @@ CSV Dataset → Staging → ETL Stored Procedures → Data Warehouse → Power B
 
 ---
 
-## 👩🏽‍💻 About Me
+##  About Me
 
 I am an aspiring **Data Engineer** focused on building real-world data pipelines, with a strong interest in **insurance analytics**.
 
