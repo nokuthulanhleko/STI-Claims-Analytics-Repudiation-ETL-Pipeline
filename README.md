@@ -4,18 +4,18 @@ STI-Claims-Analytics-Repudiation-ETL-Pipeline
 
 ## Overview
 
-This project is an end-to-end insurance claims analytics and repudiation pipeline designed to simulate a real-world data engineering solution within the short-term insurance industry.
+I am currently building an end-to-end insurance claims analytics and repudiation pipeline designed to simulate a real-world data engineering solution within the short-term insurance industry.
 
-The goal of the project is to ingest raw insurance claims data, transform it through an ETL process, store it in a structured SQL Server data warehouse, and generate analytical insights through Power BI.
+The purpose of this project is to ingest raw insurance claims data, transform it through ETL processes, store it in a structured SQL Server data warehouse, and generate analytical insights through Power BI dashboards and reporting.
 
-The solution focuses specifically on identifying:
+Through this solution, I aim to analyse and identify key insurance risk and operational patterns, including:
 
 * Claim repudiation drivers
 * Fraud risk indicators
 * Driver eligibility compliance
-* Claims trends and operational risk patterns
+* Claims trends and operational performance patterns
 
-This project is being developed as part of my transition into Data Engineering, with a strong focus on insurance analytics and production-style ETL design.
+This project forms part of my transition into Data Engineering and reflects my strong interest in insurance analytics, ETL pipeline development, data warehousing, and production-style data engineering solutions.
 
 ----
 ## Business Problem
