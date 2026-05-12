@@ -184,6 +184,9 @@ Implementation of advanced insurance validation logic, including:
 * Insurance Analytics
 * Claims Repudiation Logic
 * Analytical Reporting
-* Project Status
------
+
+----
+
+## Project Status
+  
 This project is actively being developed and continuously enhanced with additional ETL automation, analytical reporting, and production-style data engineering components.
