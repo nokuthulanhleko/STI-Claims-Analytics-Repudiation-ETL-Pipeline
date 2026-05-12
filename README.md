@@ -4,9 +4,9 @@ STI-Claims-Analytics-Repudiation-ETL-Pipeline
 
 ## Overview
 
-I am currently building an end-to-end insurance claims analytics and repudiation pipeline designed to simulate a real-world data engineering solution within the short-term insurance industry.
+In this project, I am building an end-to-end insurance claims analytics and repudiation pipeline designed to simulate a real-world data engineering solution within the short-term insurance industry.
 
-The purpose of this project is to ingest raw insurance claims data, transform it through ETL processes, store it in a structured SQL Server data warehouse, and generate analytical insights through Power BI dashboards and reporting.
+The goal of this project is to ingest raw insurance claims data, transform it through ETL processes, store it in a structured SQL Server data warehouse, and generate analytical insights through Power BI dashboards and reporting.
 
 Through this solution, I aim to analyse and identify key insurance risk and operational patterns, including:
 
@@ -15,21 +15,41 @@ Through this solution, I aim to analyse and identify key insurance risk and oper
 * Driver eligibility compliance
 * Claims trends and operational performance patterns
 
-This project forms part of my transition into Data Engineering and reflects my strong interest in insurance analytics, ETL pipeline development, data warehousing, and production-style data engineering solutions.
+This project forms part of my transition into Data Engineering and reflects my strong interest in:
+
+* Insurance analytics
+* ETL pipeline development
+* Data warehousing
+* Production-style data engineering solutions
 
 ----
 ## Business Problem
 
-Insurance companies process large volumes of claims data daily, but raw operational datasets are often fragmented, inconsistent, and difficult to analyse effectively.
+In the insurance industry, claims repudiation is one of the biggest operational and customer experience challenges. Insurance companies process thousands of claims daily, but many claims are declined or partially rejected due to policy breaches, fraud indicators, missing documentation, driver eligibility issues, or non-compliance with policy terms.
 
-This creates challenges such as:
+Through my experience in insurance operations, I noticed that insurers often struggle to clearly identify and analyse the root causes behind claim repudiations because the data is usually spread across multiple operational systems and stored in inconsistent formats.
+
+This creates several business challenges, including:
 
 * Limited visibility into why claims are repudiated
-* Difficulty identifying fraudulent behaviour
-* Inconsistent driver validation processes
-* Lack of analytical reporting for operational decision-making
+* Difficulty identifying fraud patterns and suspicious claims
+* Inconsistent driver and policy validation processes
+* Poor tracking of repudiation trends across products and claim types
+* Limited operational reporting for claims decision-making
+* Difficulty analysing risk exposure and claims behaviour
 
-This project aims to solve these challenges by building a scalable analytics pipeline that transforms raw claims data into meaningful business intelligence.
+The purpose of this project is to build an end-to-end data engineering and analytics pipeline that investigates why claims are repudiated by transforming raw insurance claims data into a structured SQL Server data warehouse for analytical reporting.
+
+Using ETL processes, star schema modelling, analytical SQL views, and Power BI dashboards, I aim to provide insights into:
+
+* The most common repudiation reasons
+* Fraud risk indicators
+* Driver eligibility compliance
+* Policy breach trends
+* Operational claims performance
+* High-risk claims patterns
+
+This project simulates how insurance companies can use modern data engineering solutions to improve claims analysis, strengthen fraud detection, and support better operational and risk management decision-making.
 
 ----
 
