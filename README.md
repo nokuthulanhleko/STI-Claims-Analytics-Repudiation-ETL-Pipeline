@@ -14,7 +14,7 @@ Through this solution, I aim to analyse and identify:
 
 * Claims repudiation drivers
 * Policy wording and exclusion impacts
-* Over-limit and underinsured claims
+* Over cover-limit and underinsured claims
 * Fraud risk indicators
 * Driver eligibility compliance
 * Claims trends and operational performance patterns
