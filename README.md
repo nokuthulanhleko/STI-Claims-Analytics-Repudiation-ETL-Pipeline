@@ -63,7 +63,7 @@ Using ETL processes, SQL Server, star schema modelling, analytical SQL views, an
 
 * Common repudiation reasons
 * Policy wording impacts
-* Over-limit and underinsured claims
+* Over cover-limit and underinsured claims
 * Fraud risk patterns
 * Driver eligibility compliance
 * Claims trends and operational performance
