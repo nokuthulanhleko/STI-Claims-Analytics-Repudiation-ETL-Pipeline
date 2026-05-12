@@ -27,7 +27,8 @@ This project forms part of my transition into Data Engineering and reflects my s
 * Data warehousing
 * Production-style data engineering solutions
 * Business intelligence and reporting
-* Business Problem
+
+## Business Problem
 
 Within the South African short-term insurance industry, claims repudiation remains one of the biggest operational and customer experience challenges within Personal Lines claims environments.
 
