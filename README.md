@@ -2,191 +2,504 @@ STI-Claims-Analytics-Repudiation-ETL-Pipeline
 
 🚧 Project Status: In Progress
 
-## Overview
+# STI Claims Analytics & Repudiation ETL Pipeline
 
-In this project, I am building an end-to-end insurance claims analytics and repudiation pipeline focused on the South African STI Personal Claims environment.
+## Project Overview
 
-The purpose of this project is to simulate a real-world data engineering solution that ingests raw insurance claims data, transforms it through ETL processes, stores it in a structured SQL Server data warehouse, and delivers analytical insights through Power BI dashboards and reporting.
+I designed and built an end-to-end data engineering and analytics pipeline focused on analysing insurance claims outcomes within the South African short-term insurance industry.
 
-This project is specifically focused on understanding why claims are repudiated within the short-term insurance industry and how insurers can use data engineering and analytics to improve operational decision-making, fraud monitoring, claims analysis, and risk management.
+The primary goal of this project is to identify and analyse the key drivers that contribute to insurance claim repudiations.
 
-Through this solution, I aim to analyse and identify:
+Within short-term insurance environments, claims are often repudiated due to multiple operational, compliance, underwriting, and policy-related factors. One of the major business challenges insurers face is understanding why claims are rejected and how these repudiation trends impact both operational efficiency and customer experience.
 
-* Claims repudiation drivers
-* Policy wording and exclusion impacts
-* Over cover-limit and underinsured claims
+This project specifically focuses on identifying repudiation drivers such as:
+
+* Lack of visible signs of forced entry for burglary claims
+* Missing proof of ownership documentation
+* Driver eligibility and policy compliance issues
 * Fraud risk indicators
-* Driver eligibility compliance
-* Claims trends and operational performance patterns
-* High-risk customer and claims behaviour
+* Policy wording understanding and customer awareness challenges
 
-This project forms part of my transition into Data Engineering and reflects my strong interest in:
+A particularly important consideration included in this project is the impact of policy wording and policyholder understanding on repudiation outcomes.
 
-* Insurance analytics
-* ETL pipeline development
-* Data warehousing
-* Production-style data engineering solutions
-* Business intelligence and reporting
+Insurance policy documents are often lengthy, technical, and difficult for customers to fully understand. In many cases, policyholders may not fully understand:
 
-## Business Problem
+* Specific policy exclusions
+* Driver eligibility requirements
+* Excess structures
+* Proof of ownership requirements
+* Claims validation conditions such as visible signs of forced entry
 
-Within the South African short-term insurance industry, claims repudiation remains one of the biggest operational and customer experience challenges within Personal Lines claims environments.
+This lack of understanding can contribute significantly to repudiated claims and customer dissatisfaction.
 
-Insurance companies process large volumes of motor, household contents, buildings, and all-risk claims daily, but many claims are repudiated or partially rejected due to:
+The purpose of this project was therefore not only to build a technical ETL pipeline, but also to create a business-focused analytical solution capable of helping insurers better understand the operational and behavioural drivers behind claim repudiations.
 
-* Fraud indicators
-* Missing supporting documentation
-* Driver eligibility issues
-* Policy exceeding cover limits
-* Non-disclosure
-* Non-compliance with policy wording and underwriting conditions
+The solution transforms raw operational claims data into a structured analytical platform capable of supporting:
+
+* Claims analysis
+* Repudiation monitoring
+* Fraud risk identification
+* Driver eligibility validation
+* Operational reporting and KPI tracking
+* Trend analysis and business intelligence reporting
+
+The project simulates a production-style insurance analytics environment using:
+
+* SQL Server staging databases
+* ETL stored procedures
+* Star schema data warehousing
+* Analytical SQL reporting views
+* Automated ETL execution
+* Power BI dashboards and KPI reporting
+
+---
+
+# Problem Statement
+
+Insurance companies process large volumes of claims data across multiple product lines and risk categories. However, raw claims data is often fragmented, operationally focused, and difficult to analyse effectively.
+
+This creates several business challenges:
+
+* Limited visibility into why claims are approved, partially paid, or repudiated
+* Difficulty identifying fraud indicators and high-risk claims
+* Poor monitoring of policy compliance requirements
+* Limited understanding of repudiation trends and operational risk patterns
+* Manual and time-consuming analytical processes
+* Customer dissatisfaction caused by misunderstanding policy wording and exclusions
+
+Many repudiated claims are not necessarily caused by fraud alone, but rather by operational and compliance issues such as:
+
+* Failure to meet policy conditions
+* Unlisted or ineligible drivers
+* Missing proof of ownership
+* Lack of visible signs of forced entry
+* Customers misunderstanding policy wording and exclusions
+
+Without structured analytical models and reporting capabilities, insurers struggle to identify these trends, improve operational visibility, and make data-driven decisions.
+
+This project was designed to solve that challenge by building a scalable ETL pipeline and analytical warehouse capable of transforming raw claims data into actionable business intelligence.
+
+---
+
+#  Architectural Overview
+
+The solution follows a layered ETL and analytical architecture.
 
 
-Through my experience within the insurance industry, I recognised that insurers often struggle to clearly identify and analyse the root causes behind repudiated claims because operational claims data is usually fragmented across multiple systems and stored in inconsistent formats.
 
-I also recognised the importance of understanding policy wording within the claims process. Many repudiations occur because policyholders do not fully understand:
+---
 
-
-* Their cover limits
-* Policy exclusions
-* Additional excess structures
-* Underinsurance impacts
-* Specified item requirements
-* Driver limitations and endorsements
-
-Claims that exceed policy limits or fall outside insured events often create disputes, operational inefficiencies, and increased financial risk exposure.
-
-The purpose of this project is to build a modern data engineering and analytics pipeline that investigates why claims are repudiated within the South African STI Personal Claims environment.
-
-Using ETL processes, SQL Server, star schema modelling, analytical SQL views, and Power BI dashboards, I aim to transform raw claims data into meaningful business intelligence that provides insight into:
+# Architecture Diagram
 
 
-* Common repudiation reasons
-* Policy wording impacts
-* Over cover-limit and underinsured claims
-* Fraud risk patterns
-* Driver eligibility compliance
-* Claims trends and operational performance
-* High-risk customer behaviour
-* Claims decision-making patterns
+
+---
+
+# Dataset Details
+
+The dataset simulates short-term insurance claims across multiple insurance products and claim outcomes.
+
+### Dataset Characteristics
+
+* Approximately 2,000 insurance claim records
+* Multiple claim outcomes:
+
+* Approved
+* Partially Approved
+* Repudiated
+* Motor and non-motor claims included
+* Fraud scoring indicators included
+* Driver eligibility logic included
+* Claims validation and compliance indicators included
+
+---
+
+## Dataset Categories
+
+### Policy Information
+
+* PolicyID
+* CoverageType
+* PremiumAmount
+
+### Claims Information
+
+* ClaimID
+* ClaimAmount
+* ApprovedAmount
+* ClaimStatus
+* PayoutRatio
+
+### Driver Information
+
+* DriverType
+* DriverEligibilityFlag
+* LicenseValid
+* IncidentDriverAge
+* AdditionalExcessFlag
+
+### Fraud Information
+
+* FraudScore
+* FraudRiskScore
+
+### Compliance Information
+
+* ForcedEntryFlag
+* ProofOfOwnershipFlag
+
+---
+
+# Star Schema Design
+
+The warehouse was designed using a dimensional modelling approach to support scalable analytics and reporting.
+
+---
+
+## Fact Table
+
+### `fact.fact_claims`
+
+The fact table stores transactional claim measures and operational metrics.
+
+### Measures
+
+* ClaimAmount
+* ApprovedAmount
+* AdditionalExcessAmount
+* PayoutRatio
+* RepudiatedFlag
+* ApprovedFlag
+* PartialPayoutFlag
+
+### Foreign Keys
+
+* DateKey
+* PolicyKey
+* CoverageKey
+* ClaimStatusKey
+* DriverKey
+* FraudKey
+
+---
+
+## Dimension Tables
+
+### `dim.dim_date`
+
+Stores reporting calendar attributes.
+
+### `dim.dim_policy`
+
+Stores policy and premium information.
+
+### `dim.dim_coverage`
+
+Stores coverage types and insured perils.
+
+### `dim.dim_claim_status`
+
+Stores claims outcome classifications.
+
+### `dim.dim_driver`
+
+Stores driver eligibility and compliance information.
+
+### `dim.dim_fraud`
+
+Stores fraud scoring and risk indicators.
+
+---
+
+# ETL Pipeline Design
+
+The ETL process was built using SQL Server stored procedures.
+
+### Key ETL Responsibilities
+
+* Raw CSV ingestion into staging
+* Data cleansing and transformation
+* Data type conversion using `TRY_CONVERT`
+* Surrogate key generation
+* Business rule implementation
+* Fact and dimension loading
+* ETL orchestration and automation
+
+---
+
+## Master ETL Procedure
 
 
-This project simulates how modern data engineering solutions can help insurers improve claims analytics, strengthen fraud monitoring, better understand repudiation drivers, and support operational and risk management decision-making.
+This procedure orchestrates the full warehouse loading process.
 
-## Project Objectives
+---
 
-* Build a structured SQL Server data warehouse using a star schema model
-* Develop reusable ETL stored procedures for data transformation
-* Simulate real-world insurance repudiation business rules
-* Create analytical views for reporting and KPI analysis
-* Automate the pipeline using SSIS and SQL Server Agent
-* Deliver interactive Power BI dashboards for claims analysis
-* Solution Architecture
+# Automation & Orchestration
 
-CSV Dataset → SQL Server Staging → ETL Stored Procedures → Star Schema Data Warehouse → Analytical SQL Views → Power BI Dashboard
+The pipeline was enhanced with automated ETL execution and operational logging capabilities.
 
-----
-## Data Warehouse Design
-Fact Table
+---
 
-* fact_claims
+## SQL Server Agent Automation
+
+The ETL pipeline is designed to support automated scheduling using SQL Server Agent.
+
+Typical automation flow:
+
+
+
+
+
+This enables:
+
+* Automated warehouse refreshes
+* Scheduled ETL execution
+* Reduced manual intervention
+* Consistent reporting availability
+* Production-style orchestration workflows
+
+---
+
+## ETL Logging
+
+An ETL logging framework was implemented to monitor pipeline execution.
+
+### Logging Capabilities
+
+* Pipeline execution tracking
+* Start and end time monitoring
+* Success and failure status tracking
+* Error message logging
+* Rows processed tracking
+
+This improves operational observability and supports production-style monitoring practices.
+
+---
+
+# Insurance Business Rules Implemented
+
+A major focus of the project was implementing realistic insurance claims validation and repudiation logic.
+
+---
+
+## Forced Entry Validation
+
+Contents burglary claims require visible signs of forced entry.
+
+Claims without forced entry indicators are flagged as potential repudiation risks.
+
+---
+
+## Proof of Ownership Validation
+
+Claims missing proof of ownership documentation are flagged for operational review and repudiation analysis.
+
+---
+
+## Driver Eligibility Rules
+
+Driver-related validation includes:
+
+* Driver licence validity
+* Driver listing requirements
+* Driver age considerations
+* Additional excess application
+
+---
+
+## Fraud Risk Monitoring
+
+Fraud risk scoring was incorporated to identify:
+
+* High-risk claims
+* Suspicious claims behaviour
+* Fraud-related repudiation risks
+
+---
+
+# Analytical SQL Views
+
+Analytical SQL views were created to simplify reporting and Power BI dashboard development.
+
+### Key Analytical Views
+
+vw_kpi_overview
+vw_claims_summary
+vw_repudiation_analysis
+vw_driver_eligibility_analysis
+vw_fraud_analysis
+vw_monthly_claim_trends
+
+These views expose clean, analytics-ready datasets for KPI reporting and dashboard visualisation.
+
+---
+
+# Power BI Analysis
+
+Power BI dashboards were designed to provide operational and executive-level insights into claims performance.
+
+---
+
+## Executive KPI Dashboard
 
 Key metrics include:
 
-* Claim Amount
-* Approved Amount
-* Excess Amount
-* Repudiation Status
-* Fraud Risk Score
-* Claim Outcome
-* Claim Processing Time
-----
-## Dimension Tables
+* Total Claims
+* Total Claim Amount
+* Total Approved Amount
+* Repudiation Rate
+* Approval Rate
+* Overall Payout Ratio
 
-* dim_customer
-* dim_policy
-* dim_driver
-* dim_vehicle
-* dim_claim_status
-* dim_fraud
-* dim_date
+---
 
-The warehouse follows a star schema design to support efficient analytical querying and reporting.
+## Repudiation Analysis Dashboard
 
-----
-## Work Completed So Far
+Focus areas include:
 
-* CSV claims dataset ingested into SQL Server staging environment
-* Staging tables successfully created and validated
-* Data warehouse schemas (dim, fact, etl) implemented
-* Star schema foundation designed for analytical reporting
-* Dimension tables developed for claims analytics
-* Fact table designed to support repudiation analysis
-* ETL stored procedures created for dimension and fact loading
-* Master ETL orchestration procedure developed
-* Initial data validation and reconciliation checks completed
-* KPI analytical SQL views currently in development
-* GitHub repository structured for version control and portfolio presentation
-----
-## Planned Enhancements & Next Steps
-Claims Repudiation Business Rules
+* Repudiation trends
+* Forced entry repudiations
+* Proof of ownership issues
+* Claims by status
+* Claims by peril
 
-Implementation of advanced insurance validation logic, including:
+---
 
-* Forced entry validation for burglary-related claims
-* Proof of ownership verification
-* Driver licence and eligibility validation
-* Young/inexperienced driver excess validation
-* Fraud risk scoring and suspicious claim detection
-----
-## Pipeline Enhancements
+## Driver Eligibility Dashboard
 
-* ETL logging and audit framework
-* Error handling and pipeline monitoring
-* Incremental loading strategies
-* SSIS pipeline automation
+Provides visibility into:
+
+* Driver compliance
+* Additional excess analysis
+* Unlisted driver claims
+* Driver repudiation risk
+
+---
+
+## Fraud Monitoring Dashboard
+
+Highlights:
+
+* Fraud risk score distribution
+* High-risk claims
+* Fraud-related repudiations
+* Claim amount vs fraud score analysis
+
+---
+
+## Monthly Claims Trend Dashboard
+
+Provides trend analysis for:
+
+* Monthly claim volumes
+* Monthly approved amounts
+* Monthly repudiation rates
+* Payout ratio trends
+
+---
+
+# Business Insights & Recommendations
+
+The project generated several operational and strategic insights.
+
+---
+
+##  Key Business Insights
+
+### Repudiation trends
+
+Claims lacking visible signs of forced entry showed significantly higher repudiation rates within contents burglary claims.
+
+### Driver compliance impact
+
+Driver-related policy breaches contributed heavily to repudiated and partially approved motor claims.
+
+### Fraud risk concentration
+
+High fraud risk scores were associated with lower payout ratios and increased repudiation outcomes.
+
+### Customer understanding challenges
+
+Policy wording complexity and lack of customer understanding appeared to contribute to repudiation-related disputes and operational friction.
+
+### Operational visibility
+
+Analytical views and KPI dashboards significantly improved visibility into claims performance and operational trends.
+
+---
+
+# Recommendations
+
+### Improve policy wording communication
+
+Insurers should simplify policy wording and improve communication around policy exclusions, claims requirements, and repudiation conditions.
+
+### Improve customer education
+
+Policyholders should receive clearer guidance regarding:
+
+* Forced entry requirements
+* Driver eligibility rules
+* Excess structures
+* Proof of ownership requirements
+
+### Strengthen fraud monitoring
+
+High-risk fraud claims should trigger earlier investigation and review processes.
+
+### Enhance underwriting controls
+
+Driver eligibility validation should be strengthened during onboarding and policy renewals.
+
+### Expand automation
+
+The solution can be enhanced further using:
+
+* SSIS orchestration
 * SQL Server Agent scheduling
-* Performance optimisation and indexing
-----
-## Analytics & Reporting
+* Automated Power BI refresh workflows
 
-* Analytical SQL views for KPI reporting
-* Power BI claims analytics dashboard
-* Repudiation trend analysis
-* Fraud monitoring visuals
-* Operational performance metrics
-----
-## Future Improvements
+### Implement incremental loading
 
-* Azure Data Factory orchestration version
-* CI/CD pipeline integration using GitHub Actions
-* Cloud migration architecture
-* Production-ready monitoring framework
-----
-## Tech Stack
+Future versions should support incremental ETL processing for scalability and performance optimisation.
 
-* SQL Server	Data warehouse & database management
-* T-SQL	ETL logic & transformations
-* SSIS	ETL automation
-* Power BI	Dashboarding & reporting
-* Git & GitHub	Version control
-* SQL Server Agent	Pipeline scheduling
-----
-## Key Data Engineering Concepts Demonstrated
+---
+
+# Technologies Used
+
+* SQL Server
+* T-SQL
+* Stored Procedures
+* Star Schema Modelling
+* Power BI
+* SQL Server Agent
+* Git & GitHub
+
+---
+
+# Key Data Engineering Concepts Demonstrated
 
 * ETL Pipeline Development
+* ETL Automation
+* Dimensional Modelling
 * Data Warehousing
-* Star Schema Modelling
-* SQL Stored Procedures
-* Data Validation & Reconciliation
-* Incremental Load Concepts
-* Pipeline Orchestration
+* Analytical SQL Views
+* Data Transformation & Cleansing
+* Business Rule Implementation
+* KPI Reporting
 * Insurance Analytics
-* Claims Repudiation Logic
-* Analytical Reporting
 
-----
+---
 
-## Project Status
-  
-This project is actively being developed and continuously enhanced with additional ETL automation, analytical reporting, and production-style data engineering components.
+# Future Enhancements
+
+Planned enhancements include:
+
+* SSIS orchestration workflows
+* Automated Power BI refresh scheduling
+* Incremental ETL loading
+* ETL monitoring dashboards
+* Azure Data Factory integration
+* Cloud migration concepts
+
+---
