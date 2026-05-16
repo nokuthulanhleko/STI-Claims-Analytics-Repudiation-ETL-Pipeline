@@ -4,34 +4,74 @@ STI-Claims-Analytics-Repudiation-ETL-Pipeline
 
 ## Overview
 
-I am currently building an end-to-end insurance claims analytics and repudiation pipeline designed to simulate a real-world data engineering solution within the short-term insurance industry.
+In this project, I am building an end-to-end insurance claims analytics and repudiation pipeline focused on the South African STI Personal Claims environment.
 
-The purpose of this project is to ingest raw insurance claims data, transform it through ETL processes, store it in a structured SQL Server data warehouse, and generate analytical insights through Power BI dashboards and reporting.
+The purpose of this project is to simulate a real-world data engineering solution that ingests raw insurance claims data, transforms it through ETL processes, stores it in a structured SQL Server data warehouse, and delivers analytical insights through Power BI dashboards and reporting.
 
-Through this solution, I aim to analyse and identify key insurance risk and operational patterns, including:
+This project is specifically focused on understanding why claims are repudiated within the short-term insurance industry and how insurers can use data engineering and analytics to improve operational decision-making, fraud monitoring, claims analysis, and risk management.
 
-* Claim repudiation drivers
+Through this solution, I aim to analyse and identify:
+
+* Claims repudiation drivers
+* Policy wording and exclusion impacts
+* Over cover-limit and underinsured claims
 * Fraud risk indicators
 * Driver eligibility compliance
 * Claims trends and operational performance patterns
+* High-risk customer and claims behaviour
 
-This project forms part of my transition into Data Engineering and reflects my strong interest in insurance analytics, ETL pipeline development, data warehousing, and production-style data engineering solutions.
+This project forms part of my transition into Data Engineering and reflects my strong interest in:
 
-----
+* Insurance analytics
+* ETL pipeline development
+* Data warehousing
+* Production-style data engineering solutions
+* Business intelligence and reporting
+
 ## Business Problem
 
-Insurance companies process large volumes of claims data daily, but raw operational datasets are often fragmented, inconsistent, and difficult to analyse effectively.
+Within the South African short-term insurance industry, claims repudiation remains one of the biggest operational and customer experience challenges within Personal Lines claims environments.
 
-This creates challenges such as:
+Insurance companies process large volumes of motor, household contents, buildings, and all-risk claims daily, but many claims are repudiated or partially rejected due to:
 
-* Limited visibility into why claims are repudiated
-* Difficulty identifying fraudulent behaviour
-* Inconsistent driver validation processes
-* Lack of analytical reporting for operational decision-making
+* Fraud indicators
+* Missing supporting documentation
+* Driver eligibility issues
+* Policy exceeding cover limits
+* Non-disclosure
+* Non-compliance with policy wording and underwriting conditions
 
-This project aims to solve these challenges by building a scalable analytics pipeline that transforms raw claims data into meaningful business intelligence.
 
-----
+Through my experience within the insurance industry, I recognised that insurers often struggle to clearly identify and analyse the root causes behind repudiated claims because operational claims data is usually fragmented across multiple systems and stored in inconsistent formats.
+
+I also recognised the importance of understanding policy wording within the claims process. Many repudiations occur because policyholders do not fully understand:
+
+
+* Their cover limits
+* Policy exclusions
+* Additional excess structures
+* Underinsurance impacts
+* Specified item requirements
+* Driver limitations and endorsements
+
+Claims that exceed policy limits or fall outside insured events often create disputes, operational inefficiencies, and increased financial risk exposure.
+
+The purpose of this project is to build a modern data engineering and analytics pipeline that investigates why claims are repudiated within the South African STI Personal Claims environment.
+
+Using ETL processes, SQL Server, star schema modelling, analytical SQL views, and Power BI dashboards, I aim to transform raw claims data into meaningful business intelligence that provides insight into:
+
+
+* Common repudiation reasons
+* Policy wording impacts
+* Over cover-limit and underinsured claims
+* Fraud risk patterns
+* Driver eligibility compliance
+* Claims trends and operational performance
+* High-risk customer behaviour
+* Claims decision-making patterns
+
+
+This project simulates how modern data engineering solutions can help insurers improve claims analytics, strengthen fraud monitoring, better understand repudiation drivers, and support operational and risk management decision-making.
 
 ## Project Objectives
 
@@ -49,7 +89,7 @@ CSV Dataset → SQL Server Staging → ETL Stored Procedures → Star Schema Dat
 ## Data Warehouse Design
 Fact Table
 
-fact_claims
+* fact_claims
 
 Key metrics include:
 
@@ -84,7 +124,7 @@ The warehouse follows a star schema design to support efficient analytical query
 * Fact table designed to support repudiation analysis
 * ETL stored procedures created for dimension and fact loading
 * Master ETL orchestration procedure developed
-* Initial data validation and reconciliation checks in development
+* Initial data validation and reconciliation checks completed
 * KPI analytical SQL views currently in development
 * GitHub repository structured for version control and portfolio presentation
 ----
@@ -144,6 +184,9 @@ Implementation of advanced insurance validation logic, including:
 * Insurance Analytics
 * Claims Repudiation Logic
 * Analytical Reporting
-* Project Status
------
+
+----
+
+## Project Status
+  
 This project is actively being developed and continuously enhanced with additional ETL automation, analytical reporting, and production-style data engineering components.
