@@ -1,0 +1,27 @@
+--- Power Query (M) snippets for using the local sample CSV
+-- Update `samplePath` if you move the file
+
+/* Option A: Use Get Data → Text/CSV and point to the file:
+   powerbi/STI_Claims_Dashboard/sti_claims_sample.csv */
+
+/* Option B: Blank Query → Advanced Editor — a reusable M query */
+let
+    samplePath = "C:\\Users\\Administrator\\Desktop\\STI-Claims-Analytics-Repudiation-ETL-Pipeline\\powerbi\\STI_Claims_Dashboard\\sti_claims_sample.csv",
+    Source = Csv.Document(File.Contents(samplePath), [Delimiter=",", Columns=25, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {
+        {"ClaimID", Int64.Type},
+        {"PolicyID", Int64.Type},
+        {"ClaimDate", type date},
+        {"ClaimAmount", type number},
+        {"ApprovedAmount", type number},
+        {"FraudScore", type number},
+        {"PremiumAmount", type number},
+        {"FraudRiskScore", type number},
+        {"AdditionalExcessAmount", type number},
+        {"PayoutRatio", type number}
+    })
+in
+    ChangedTypes
+
+-- Usage: set `samplePath` to your local path or use Get Data → Text/CSV and then 'Transform Data' to run the same steps.

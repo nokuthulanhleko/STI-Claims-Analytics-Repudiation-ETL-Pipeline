@@ -1,0 +1,61 @@
+--- Production Power Query (M) snippets for SQL Server
+-- Replace `SERVER_NAME` with your SQL Server host (example: SERVER\INSTANCE or myserver.company.local)
+-- These queries assume the database `sti_claims_dw` (as provided). Use Windows Authentication (default) in Power BI.
+
+/* vw_claims_summary (primary, denormalized) */
+let
+    Source = Sql.Database("SERVER_NAME", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_claims_summary;"])
+in
+    Source
+
+let
+    Source = Sql.Database("I0292P0", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_claims_summary;"])
+in
+    Source
+
+/* vw_repudiation_analysis */
+let
+    Source = Sql.Database("SERVER_NAME", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_repudiation_analysis;"])
+in
+    Source
+
+let
+    Source = Sql.Database("I0292P0", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_repudiation_analysis;"])
+in
+    Source
+
+/* vw_fraud_analysis */
+let
+    Source = Sql.Database("SERVER_NAME", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_fraud_analysis;"])
+in
+    Source
+
+let
+    Source = Sql.Database("I0292P0", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_fraud_analysis;"])
+in
+    Source
+
+/* vw_monthly_claim_trends */
+let
+    Source = Sql.Database("SERVER_NAME", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_monthly_claim_trends;"])
+in
+    Source
+
+let
+    Source = Sql.Database("I0292P0", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_monthly_claim_trends;"])
+in
+    Source
+
+/* vw_driver_eligibility_analysis */
+let
+    Source = Sql.Database("SERVER_NAME", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_driver_eligibility_analysis;"])
+in
+    Source
+
+let
+    Source = Sql.Database("I0292P0", "sti_claims_dw", [Query="SELECT * FROM dbo.vw_driver_eligibility_analysis;"])
+in
+    Source
+-- Notes:
+-- 1) Power BI will prompt for credentials when you connect; choose "Windows" for integrated auth or "Database" for SQL auth.
+-- 2) For large datasets consider enabling query folding, incremental refresh, or wrapping the view selection with a date filter in the Query to limit rows during development.

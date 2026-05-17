@@ -1,0 +1,7 @@
+{
+  "name": "STI Claims Theme",
+  "dataColors": ["#0B6E4F", "#1F9E89", "#F2C94C", "#F2994A", "#EB5757", "#2F80ED", "#9B51E0"],
+  "background": "#ffffff",
+  "foreground": "#222222",
+  "tableAccent": "#0B6E4F"
+}
