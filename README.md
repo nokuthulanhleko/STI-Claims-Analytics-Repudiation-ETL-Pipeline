@@ -276,7 +276,7 @@ An ETL logging framework was implemented to monitor pipeline execution.
 
 This improves operational observability and supports production-style monitoring practices.
 
-<img width="764" height="428" alt="Executive Overview" src="https://github.com/user-attachments/assets/aabb65ba-9ec4-4ab5-a72a-a049aa4e04ad" />
+<img width="1011" height="586" alt="etl sp_run_claims_pipeline" src="https://github.com/user-attachments/assets/3b27e7d7-8db1-4daa-9e2d-1df37ac9637e" />
 
 ---
 
@@ -354,6 +354,8 @@ Key metrics include:
 * Repudiation Rate
 * Approval Rate
 * Overall Payout Ratio
+
+<img width="764" height="428" alt="Executive Overview" src="https://github.com/user-attachments/assets/8d6336b2-d3ea-4e10-bdba-b9853814037d" />
 
 ---
 
