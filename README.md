@@ -154,6 +154,8 @@ The dataset simulates short-term insurance claims across multiple insurance prod
 
 The warehouse was designed using a dimensional modelling approach to support scalable analytics and reporting.
 
+<img width="588" height="559" alt="Star Schema" src="https://github.com/user-attachments/assets/0458b8d2-67d4-4923-b06c-cf7cf0b243c4" />
+
 ---
 
 ## Fact Table
@@ -273,6 +275,8 @@ An ETL logging framework was implemented to monitor pipeline execution.
 * Rows processed tracking
 
 This improves operational observability and supports production-style monitoring practices.
+
+<img width="764" height="428" alt="Executive Overview" src="https://github.com/user-attachments/assets/aabb65ba-9ec4-4ab5-a72a-a049aa4e04ad" />
 
 ---
 
