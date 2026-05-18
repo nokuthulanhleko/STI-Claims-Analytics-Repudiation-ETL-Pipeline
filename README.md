@@ -367,6 +367,8 @@ Focus areas include:
 * Claims by status
 * Claims by peril
 
+<img width="771" height="432" alt="Repudiation Analysis" src="https://github.com/user-attachments/assets/d4b198f6-b64b-43bd-a066-9b13cea2bcac" />
+
 ---
 
 ## Driver Eligibility Dashboard
