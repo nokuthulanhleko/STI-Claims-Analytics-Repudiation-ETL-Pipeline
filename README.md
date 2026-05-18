@@ -83,14 +83,12 @@ This project was designed to solve that challenge by building a scalable ETL pip
 
 #  Architectural Overview
 
-The solution follows a layered ETL and analytical architecture.
 
 
 
----
+Architecture Diagram
 
-# Architecture Diagram
-
+<img width="3141" height="130" alt="Architectural Flow Diagram" src="https://github.com/user-attachments/assets/40f7a315-0e6e-424f-9957-2e695d7b9f5d" />
 
 
 ---
@@ -102,8 +100,8 @@ The dataset simulates short-term insurance claims across multiple insurance prod
 ### Dataset Characteristics
 
 * Approximately 2,000 insurance claim records
-* Multiple claim outcomes:
 
+ Multiple claim outcomes:
 * Approved
 * Partially Approved
 * Repudiated
