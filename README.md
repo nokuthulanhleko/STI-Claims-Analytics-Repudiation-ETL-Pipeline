@@ -238,8 +238,6 @@ This procedure orchestrates the full warehouse loading process.
 
 The pipeline was enhanced with automated ETL execution and operational logging capabilities.
 
----
-
 ## SQL Server Agent Automation
 
 The ETL pipeline is designed to support automated scheduling using SQL Server Agent.
