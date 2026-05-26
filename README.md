@@ -323,12 +323,12 @@ Analytical SQL views were created to simplify reporting and Power BI dashboard d
 
 ### Key Analytical Views
 
-vw_kpi_overview
-vw_claims_summary
-vw_repudiation_analysis
-vw_driver_eligibility_analysis
-vw_fraud_analysis
-vw_monthly_claim_trends
+* vw_kpi_overview
+* vw_claims_summary
+* vw_repudiation_analysis
+* vw_driver_eligibility_analysis
+* vw_fraud_analysis
+* vw_monthly_claim_trends
 
 These views expose clean, analytics-ready datasets for KPI reporting and dashboard visualisation.
 
