@@ -378,6 +378,8 @@ Provides visibility into:
 * Unlisted driver claims
 * Driver repudiation risk
 
+  <img width="891" height="497" alt="Driver Eligibility Analysis" src="https://github.com/user-attachments/assets/e154e772-54ff-489b-838e-e69e658e46f9" />
+
 ---
 
 ## Fraud Monitoring Dashboard
